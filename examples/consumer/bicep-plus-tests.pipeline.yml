@@ -19,9 +19,6 @@ parameters:
   - name: skip_preprod
     type: boolean
     default: false
-  - name: skip_prod
-    type: boolean
-    default: false
 
 extends:
   template: bicep-plus-tests.settings.yml
