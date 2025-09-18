@@ -98,7 +98,7 @@ extends:
       drInvocation: ${{ parameters.drInvocation }}
       variableRoot: examples/consumer/vars
       variables:
-        includeCommon: false
+        includeCommon: true
         includeEnv: false
         includeEnvRegion: false
         includeRegionOnly: false
