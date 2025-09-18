@@ -109,5 +109,5 @@ extends:
       additionalRepositories:
         # - alias: Modules
       keyVault:
-        name: kv-example
-        secretsFilter: "app-*"
+        name: ""
+        secretsFilter: ""
