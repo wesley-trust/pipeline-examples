@@ -37,7 +37,7 @@ extends:
     configuration:
       defaultPool:
         vmImage: "ubuntu-latest"
-      serviceConnection: $(serviceConnection)
+      serviceConnection: serviceConnection
       environments:
         - name: dev
           class: development
