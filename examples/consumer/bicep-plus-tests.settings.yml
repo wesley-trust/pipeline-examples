@@ -105,7 +105,7 @@ extends:
       variableGroups:
         - "Common-Variables"
       validation:
-        enableVariableIncludes: false
+        enableVariableIncludes: true
       additionalRepositories:
         # - alias: Modules
       keyVault:
