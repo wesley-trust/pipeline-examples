@@ -1,2 +1,2 @@
-using 'base.bicep'
+using './base.bicep'
 param location = 'westeurope'
