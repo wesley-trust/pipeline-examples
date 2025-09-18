@@ -35,6 +35,9 @@ extends:
   template: /templates/pipeline-dispatcher.yml@PipelineDispatcher
   parameters:
     configuration:
+      defaultPool:
+        vmImage: "ubuntu-latest"
+      serviceConnection: $(serviceConnection)
       environments:
         - name: dev
           class: development
@@ -99,8 +102,6 @@ extends:
         includeEnv: false
         includeEnvRegion: false
         includeRegionOnly: false
-      defaultPool:
-        vmImage: "ubuntu-latest"
       variableGroups:
         - "Common-Variables"
       validation:

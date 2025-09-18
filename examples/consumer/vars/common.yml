@@ -2,4 +2,4 @@
 variables:
   appName: myapp
   owner: platform-team
-
+  serviceConnection: sc-azure-vse-shared-sub-wif-001
