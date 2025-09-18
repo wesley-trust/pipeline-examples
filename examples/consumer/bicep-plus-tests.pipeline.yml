@@ -39,7 +39,7 @@ extends:
         actions:
           - name: base
             scope: resourceGroup
-            resourceGroupName: rg-app-$(Environment)
+            resourceGroupName: rg-app-$(Environment)-$(regionCode)
             location: westeurope
             templatePath: examples/assets/bicep/base.bicep
             parametersFile: examples/assets/bicep/base.bicepparam

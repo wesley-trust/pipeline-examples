@@ -101,7 +101,7 @@ extends:
         includeCommon: true
         includeEnv: true
         includeEnvRegion: false
-        includeRegionOnly: false
+        includeRegionOnly: true
       variableGroups:
         - "Common-Variables"
       validation:
