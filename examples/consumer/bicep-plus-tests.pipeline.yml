@@ -46,6 +46,8 @@ extends:
       - name: pester_regression
         type: powershell
         displayName: Pester Regression
+        dependsOn:
+          - bicep_action
         actions:
           - name: regression
             scriptPath: examples/assets/scripts/pester_run.ps1
@@ -53,6 +55,8 @@ extends:
       - name: pester_smoke
         type: powershell
         displayName: Pester Smoke
+        dependsOn:
+          - bicep_action
         actions:
           - name: smoke
             scriptPath: examples/assets/scripts/pester_run.ps1
