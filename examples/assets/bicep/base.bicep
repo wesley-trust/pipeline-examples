@@ -1,5 +1,3 @@
-param location string = 'westeurope'
-
 resource noop 'Microsoft.Resources/deployments@2021-04-01' = {
   name: 'noop-base'
   properties: {
