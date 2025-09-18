@@ -1,6 +1,6 @@
 param(
-  [Parameter(Mandatory=$true)][string]$TestsPath,
-  [Parameter(Mandatory=$true)][string]$ResultsFile,
+  [Parameter(Mandatory = $true)][string]$TestsPath,
+  [Parameter(Mandatory = $true)][string]$ResultsFile,
   [string]$ResultsFormat = 'NUnitXml'
 )
 
@@ -17,10 +17,11 @@ try {
   $dir = Split-Path -Path $ResultsFile -Parent
   if ($dir -and -not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
 
+  Set-Location self
+
   Invoke-Pester -Path $TestsPath -OutputFormat $ResultsFormat -OutputFile $ResultsFile -EnableExit
 }
 catch {
   Write-Error $_
   throw
 }
-
