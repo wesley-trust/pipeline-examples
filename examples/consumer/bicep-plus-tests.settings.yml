@@ -99,7 +99,7 @@ extends:
       variableRoot: examples/consumer/vars
       variables:
         includeCommon: true
-        includeEnv: false
+        includeEnv: true
         includeEnvRegion: false
         includeRegionOnly: false
       variableGroups:
