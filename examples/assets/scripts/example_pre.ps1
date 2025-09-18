@@ -3,6 +3,6 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
-Write-Host "[example_pre] Running for environment: $EnvName"
-Write-Host "Hello from example_pre.ps1"
+Write-Information -InformationAction Continue -MessageData "[example_pre] Running for environment: $EnvName"
+Write-Information -InformationAction Continue -MessageData "Hello from example_pre.ps1"
 
