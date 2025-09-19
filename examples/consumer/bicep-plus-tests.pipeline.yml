@@ -41,7 +41,7 @@ extends:
             scope: subscription
             #resourceGroupName: rg-app-$(Environment)-$(regionCode)
             location: westeurope
-            templatePath: examples/assets/bicep/deploymentStack.bicep
+            templatePath: examples/assets/bicep/deploymentstack.bicep
             #parametersFile: examples/assets/bicep/base.bicepparam
       # - name: bicep_action
       #   type: bicep
