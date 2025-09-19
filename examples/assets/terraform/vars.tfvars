@@ -1,3 +1,2 @@
-location = "#{location}"
-sku      = "#{sku}"
-
+location = "#{{ location }}"
+sku      = "#{{ sku }}"
