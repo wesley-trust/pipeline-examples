@@ -15,10 +15,10 @@ parameters:
     default: false
   - name: skip_qa
     type: boolean
-    default: false
+    default: true
   - name: skip_preprod
     type: boolean
-    default: false
+    default: true
 
 extends:
   template: bicep-plus-tests.settings.yml
@@ -33,16 +33,29 @@ extends:
       - name: bicep_action
         type: bicep
         displayName: Bicep Action
-        tokenReplaceEnabled: true
-        tokenTargetPatterns:
-          - examples/assets/bicep/**/*.bicepparam
+        tokenReplaceEnabled: false
+        # tokenTargetPatterns:
+        #   - examples/assets/bicep/**/*.bicepparam
         actions:
-          - name: base
-            scope: resourceGroup
-            resourceGroupName: rg-app-$(Environment)-$(regionCode)
+          - name: deploymentStack
+            scope: subscription
+            #resourceGroupName: rg-app-$(Environment)-$(regionCode)
             location: westeurope
-            templatePath: examples/assets/bicep/base.bicep
-            parametersFile: examples/assets/bicep/base.bicepparam
+            templatePath: examples/assets/bicep/deploymentStack.bicep
+            #parametersFile: examples/assets/bicep/base.bicepparam
+      # - name: bicep_action
+      #   type: bicep
+      #   displayName: Bicep Action
+      #   tokenReplaceEnabled: true
+      #   tokenTargetPatterns:
+      #     - examples/assets/bicep/**/*.bicepparam
+      #   actions:
+      #     - name: base
+      #       scope: resourceGroup
+      #       resourceGroupName: rg-app-$(Environment)-$(regionCode)
+      #       location: westeurope
+      #       templatePath: examples/assets/bicep/base.bicep
+      #       parametersFile: examples/assets/bicep/base.bicepparam
       - name: pester_regression
         type: powershell
         displayName: Pester Regression

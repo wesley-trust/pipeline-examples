@@ -2,4 +2,5 @@
 variables:
   appName: myapp
   owner: platform-team
+  resourceGroup: rg-$(service)-$(environment)-$(regionCode)-$(deploymentVersion)
   serviceConnection: sc-azure-vse-shared-sub-wif-001
