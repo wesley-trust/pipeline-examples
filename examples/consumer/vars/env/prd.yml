@@ -1,5 +1,4 @@
 variables:
   environment: prd
-  location: westeurope
   sku: prd-sku
 

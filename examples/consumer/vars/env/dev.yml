@@ -1,5 +1,4 @@
 variables:
   environment: dev
-  location: westeurope
   sku: dev-sku
 

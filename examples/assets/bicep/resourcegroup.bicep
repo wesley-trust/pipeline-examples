@@ -1,9 +1,11 @@
 targetScope = 'subscription'
 
-param location string = 'westeurope'
-param resourceGroupName string = 'rg-app-dev-weu-001'
+param location string
+param resourceGroupName string
 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: resourceGroupName
-  location: location
+module resourceGroup 'br/public:avm/res/resources/resource-group:0.4.1' = {
+  params: {
+    name: resourceGroupName
+    location: location
+  }
 }

@@ -1,5 +1,4 @@
 variables:
   environment: qa
-  location: westeurope
   sku: qa-sku
 
