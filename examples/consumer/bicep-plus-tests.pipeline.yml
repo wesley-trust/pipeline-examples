@@ -19,6 +19,10 @@ parameters:
   - name: skip_preprod
     type: boolean
     default: true
+  - name: allowDeleteOnUnmanage
+    type: boolean
+    default: false
+
 
 extends:
   template: bicep-plus-tests.settings.yml
@@ -41,6 +45,7 @@ extends:
             tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
+            allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
             templatePath: examples/assets/bicep/resourcegroup.bicep
             parametersFile: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
@@ -48,7 +53,7 @@ extends:
             tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
-            allowDeleteOnUnmanage: true
+            allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
             templatePath: examples/assets/bicep/base.bicep
             parametersFile: examples/assets/bicep/base.bicepparam
       # - name: bicep_base
