@@ -44,8 +44,8 @@ extends:
           #dependsOn: validation
           dependsOnSecondaryRegions: false
           primaryRegion: weu
-          # secondaryRegions:
-          #   - neu
+          secondaryRegions:
+            - neu
           drRegion: neu
           allowedBranches:
             - "*"
