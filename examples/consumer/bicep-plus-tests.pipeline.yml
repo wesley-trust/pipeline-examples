@@ -36,13 +36,13 @@ extends:
         # tokenTargetPatterns:
         #   - examples/assets/bicep/**/*.bicepparam
         actions:
-          - name: deploymentStack
+          - name: deployment_stack
             scope: subscription
-            tokenReplaceEnabled: false
+            #tokenReplaceEnabled: false
             #resourceGroupName: rg-app-$(Environment)-$(regionCode)
             location: westeurope
-            templatePath: examples/assets/bicep/deploymentstack.bicep
-            #parametersFile: examples/assets/bicep/base.bicepparam
+            templatePath: examples/assets/bicep/deployment_stack.bicep
+            parametersFile: examples/assets/bicep/deployment_stack.bicepparam
       # - name: bicep_action
       #   type: bicep
       #   displayName: Bicep Action

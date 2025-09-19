@@ -1,5 +1,5 @@
 variables:
-  Environment: ppr
+  environment: ppr
   location: westeurope
   sku: ppr-sku
 
