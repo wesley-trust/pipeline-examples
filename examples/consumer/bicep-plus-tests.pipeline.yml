@@ -38,7 +38,7 @@ extends:
         actions:
           - name: resourcegroup
             scope: subscription
-            #tokenReplaceEnabled: true
+            tokenReplaceEnabled: true
             resourceGroupName: rg-app-dev-weu-001
             location: westeurope
             templatePath: examples/assets/bicep/resourcegroup.bicep
