@@ -7,3 +7,11 @@ module identity 'br/public:avm/res/managed-identity/user-assigned-identity:0.4.1
     location: location
   }
 }
+
+// Test second
+module identity_second 'br/public:avm/res/managed-identity/user-assigned-identity:0.4.1' = {
+  params: {
+    name: '${name}_second'
+    location: location
+  }
+}
