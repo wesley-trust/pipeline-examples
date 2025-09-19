@@ -1,4 +1,4 @@
 using './resourcegroup.bicep'
 
 param location = '#{{ region }}'
-param resourceGroup = '#{{ resourceGroup }}'
+param resourceGroupName = '#{{ resourceGroup }}'
