@@ -38,11 +38,11 @@ extends:
         actions:
           - name: deployment_stack
             scope: subscription
-            tokenReplaceEnabled: true
+            #tokenReplaceEnabled: true
             #resourceGroupName: rg-app-$(Environment)-$(regionCode)
             location: westeurope
             templatePath: examples/assets/bicep/deployment_stack.bicep
-            parametersFile: examples/assets/bicep/deployment_stack.bicepparam
+            #parametersFile: examples/assets/bicep/deployment_stack.bicepparam
       # - name: bicep_action
       #   type: bicep
       #   displayName: Bicep Action
