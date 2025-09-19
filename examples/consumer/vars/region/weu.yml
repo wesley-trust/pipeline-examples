@@ -1,5 +1,4 @@
 variables:
   regionCode: weu
-  region: northeurope
+  region: westeurope
   regionDisplay: West Europe
-
