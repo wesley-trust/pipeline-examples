@@ -38,7 +38,7 @@ extends:
         actions:
           - name: deployment_stack
             scope: subscription
-            #tokenReplaceEnabled: false
+            tokenReplaceEnabled: true
             #resourceGroupName: rg-app-$(Environment)-$(regionCode)
             location: westeurope
             templatePath: examples/assets/bicep/deployment_stack.bicep
