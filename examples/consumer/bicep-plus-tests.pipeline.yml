@@ -48,7 +48,7 @@ extends:
             tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
-            allowDeleteOnUnmanage: false
+            allowDeleteOnUnmanage: true
             templatePath: examples/assets/bicep/base.bicep
             parametersFile: examples/assets/bicep/base.bicepparam
       # - name: bicep_base
