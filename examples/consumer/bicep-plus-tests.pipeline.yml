@@ -23,7 +23,6 @@ parameters:
     type: boolean
     default: false
 
-
 extends:
   template: bicep-plus-tests.settings.yml
   parameters:
@@ -53,7 +52,8 @@ extends:
             tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
-            allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
+            allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage }}
+            mode: ${{ if parameters.allowDeleteOnUnmanage }}complete${{ else }}''${{ end }}
             templatePath: examples/assets/bicep/base.bicep
             parametersFile: examples/assets/bicep/base.bicepparam
       # - name: bicep_base
