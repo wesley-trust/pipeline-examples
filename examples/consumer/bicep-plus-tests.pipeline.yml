@@ -6,7 +6,7 @@ parameters:
     default: false
   - name: runReviewStage
     type: boolean
-    default: false
+    default: true
   - name: drInvocation
     type: boolean
     default: false
