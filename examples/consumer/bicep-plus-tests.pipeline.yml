@@ -36,12 +36,13 @@ extends:
       - name: bicep_action
         type: bicep
         displayName: Bicep Action
+        tokenReplaceEnabled: true
         # tokenTargetPatterns:
         #   - examples/assets/bicep/**/*.bicepparam
         actions:
           - name: resourcegroup
             scope: subscription
-            tokenReplaceEnabled: true
+            #tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
@@ -49,7 +50,7 @@ extends:
             parametersFile: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
             scope: resourceGroup
-            tokenReplaceEnabled: true
+            #tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage }}
