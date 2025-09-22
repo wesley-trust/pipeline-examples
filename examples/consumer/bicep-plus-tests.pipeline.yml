@@ -53,7 +53,6 @@ extends:
             resourceGroupName: $(resourceGroup)
             location: $(region)
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage }}
-            mode: ${{ if parameters.allowDeleteOnUnmanage }}complete${{ else }}''${{ end }}
             templatePath: examples/assets/bicep/base.bicep
             parametersFile: examples/assets/bicep/base.bicepparam
       # - name: bicep_base
