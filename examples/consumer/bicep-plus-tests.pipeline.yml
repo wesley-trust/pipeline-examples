@@ -53,7 +53,7 @@ extends:
     actionGroups:
       - name: bicep_actions
         type: bicep
-        enabled: ${{ not(parameters.doNotRunBicepActions }}
+        enabled: ${{ not(parameters.doNotRunBicepActions) }}
         #displayName: Bicep Actions
         tokenReplaceEnabled: true
         # tokenTargetPatterns:
@@ -61,7 +61,7 @@ extends:
         actions:
           - name: resource_group
             scope: subscription
-            enabled: ${{ not(parameters.doNotRunResourceGroup }}
+            enabled: ${{ not(parameters.doNotRunResourceGroup) }}
             #tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
@@ -70,7 +70,7 @@ extends:
             parametersFile: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
             scope: resourceGroup
-            enabled: ${{ not(parameters.doNotRunBase }}
+            enabled: ${{ not(parameters.doNotRunBase) }}
             #tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
@@ -79,16 +79,16 @@ extends:
             parametersFile: examples/assets/bicep/base.bicepparam
       - name: bicep_tests
         type: powershell
-        enabled: ${{ not(parameters.doNotRunBicepTests }}
+        enabled: ${{ not(parameters.doNotRunBicepTests) }}
         displayName: Pester Bicep Tests
         dependsOn:
           - bicep_actions
         actions:
           - name: regression
-            enabled: ${{ not(parameters.doNotRunRegression }}
+            enabled: ${{ not(parameters.doNotRunRegression) }}
             scriptPath: examples/assets/scripts/pester_run.ps1
             arguments: "-TestsPath examples/assets/tests/pester/regression -ResultsFile TestResults/pester.regression.xml"
           - name: smoke
-            enabled: ${{ not(parameters.doNotRunSmoke }}
+            enabled: ${{ not(parameters.doNotRunSmoke) }}
             scriptPath: examples/assets/scripts/pester_run.ps1
             arguments: "-TestsPath examples/assets/tests/pester/smoke -ResultsFile TestResults/pester.smoke.xml"
