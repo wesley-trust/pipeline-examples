@@ -22,6 +22,24 @@ parameters:
   - name: allowDeleteOnUnmanage
     type: boolean
     default: false
+  - name: doNotRunBicepActions
+    type: boolean
+    default: false
+  - name: doNotRunResourceGroup
+    type: boolean
+    default: false
+  - name: doNotRunBase
+    type: boolean
+    default: false
+  - name: doNotRunBicepTests
+    type: boolean
+    default: false
+  - name: doNotRunRegression
+    type: boolean
+    default: false
+  - name: doNotRunSmoke
+    type: boolean
+    default: false
 
 extends:
   template: bicep-plus-tests.settings.yml
@@ -35,13 +53,15 @@ extends:
     actionGroups:
       - name: bicep_actions
         type: bicep
-        displayName: Bicep Actions
+        enabled: ${{ not(parameters.doNotRunBicepActions }}
+        #displayName: Bicep Actions
         tokenReplaceEnabled: true
         # tokenTargetPatterns:
         #   - examples/assets/bicep/**/*.bicepparam
         actions:
-          - name: resourcegroup
+          - name: resource_group
             scope: subscription
+            enabled: ${{ not(parameters.doNotRunResourceGroup }}
             #tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
@@ -50,6 +70,7 @@ extends:
             parametersFile: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
             scope: resourceGroup
+            enabled: ${{ not(parameters.doNotRunBase }}
             #tokenReplaceEnabled: true
             resourceGroupName: $(resourceGroup)
             location: $(region)
@@ -58,13 +79,16 @@ extends:
             parametersFile: examples/assets/bicep/base.bicepparam
       - name: bicep_tests
         type: powershell
+        enabled: ${{ not(parameters.doNotRunBicepTests }}
         displayName: Pester Bicep Tests
         dependsOn:
           - bicep_actions
         actions:
           - name: regression
+            enabled: ${{ not(parameters.doNotRunRegression }}
             scriptPath: examples/assets/scripts/pester_run.ps1
             arguments: "-TestsPath examples/assets/tests/pester/regression -ResultsFile TestResults/pester.regression.xml"
           - name: smoke
+            enabled: ${{ not(parameters.doNotRunSmoke }}
             scriptPath: examples/assets/scripts/pester_run.ps1
             arguments: "-TestsPath examples/assets/tests/pester/smoke -ResultsFile TestResults/pester.smoke.xml"
