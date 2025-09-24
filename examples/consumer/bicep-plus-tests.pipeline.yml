@@ -29,14 +29,6 @@ parameters:
     displayName: "Skip Bicep Test: Smoke"
     type: boolean
     default: false
-  - name: allowDeleteOnUnmanage
-    displayName: "Allow Delete on Unmanage"
-    type: boolean
-    default: false
-  - name: cleanupResourceGroupStack
-    displayName: "Cleanup Resource Group Stack"
-    type: boolean
-    default: false
   - name: skip_dev
     displayName: "Skip Environment: Development"
     type: boolean
@@ -51,6 +43,14 @@ parameters:
     default: true
   - name: enableProduction
     displayName: "Enable Production"
+    type: boolean
+    default: false
+  - name: allowDeleteOnUnmanage
+    displayName: "Allow Delete on Unmanage"
+    type: boolean
+    default: false
+  - name: cleanupResourceGroupStack
+    displayName: "Cleanup Resource Group Stack"
     type: boolean
     default: false
   - name: drInvocation
