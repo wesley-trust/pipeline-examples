@@ -22,6 +22,9 @@ parameters:
   - name: allowDeleteOnUnmanage
     type: boolean
     default: false
+  - name: cleanupResourceGroupStack
+    type: boolean
+    default: false
   - name: doNotRunBicepActions
     type: boolean
     default: false
@@ -66,6 +69,7 @@ extends:
             resourceGroupName: $(resourceGroup)
             location: $(region)
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
+            cleanupStack: ${{ parameters.cleanupResourceGroupStack }}
             templatePath: examples/assets/bicep/resourcegroup.bicep
             parametersFile: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
