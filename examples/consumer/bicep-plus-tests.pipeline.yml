@@ -1,6 +1,18 @@
 # Example Bicep deploy plus post-deploy Pester tests
 
 parameters:
+  - name: skip_dev
+    displayName: "Skip Environment: Development"
+    type: boolean
+    default: false
+  - name: skip_qa
+    displayName: "Skip Environment: QA"
+    type: boolean
+    default: true
+  - name: skip_preprod
+    displayName: "Skip Environment: Pre-Production"
+    type: boolean
+    default: true
   - name: runReviewStage
     displayName: "Run Review Stage"
     type: boolean
@@ -29,18 +41,6 @@ parameters:
     displayName: "Skip Bicep Test: Smoke"
     type: boolean
     default: false
-  - name: skip_dev
-    displayName: "Skip Environment: Development"
-    type: boolean
-    default: false
-  - name: skip_qa
-    displayName: "Skip Environment: QA"
-    type: boolean
-    default: true
-  - name: skip_preprod
-    displayName: "Skip Environment: Pre-Production"
-    type: boolean
-    default: true
   - name: allowDeleteOnUnmanage
     displayName: "Allow Delete on Unmanage"
     type: boolean
