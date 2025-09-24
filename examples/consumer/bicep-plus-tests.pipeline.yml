@@ -1,6 +1,18 @@
 # Example Bicep deploy plus post-deploy Pester tests
 
 parameters:
+  - name: runReviewStage
+    displayName: "Enable Review Stage"
+    type: boolean
+    default: true
+  - name: allowDeleteOnUnmanage
+    displayName: "Allow Delete on Unmanage"
+    type: boolean
+    default: false
+  - name: cleanupResourceGroupStack
+    displayName: "Cleanup Resource Group Stack"
+    type: boolean
+    default: false
   - name: doNotRunBicepActions
     displayName: "Bicep Actions: Skip All"
     type: boolean
@@ -39,18 +51,6 @@ parameters:
     default: true
   - name: enableProduction
     displayName: "Enable Production"
-    type: boolean
-    default: false
-  - name: runReviewStage
-    displayName: "Enable Review Stage"
-    type: boolean
-    default: true
-  - name: allowDeleteOnUnmanage
-    displayName: "Allow Delete on Unmanage"
-    type: boolean
-    default: false
-  - name: cleanupResourceGroupStack
-    displayName: "Cleanup Resource Group Stack"
     type: boolean
     default: false
   - name: drInvocation
