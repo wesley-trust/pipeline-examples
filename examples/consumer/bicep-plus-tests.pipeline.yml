@@ -1,6 +1,10 @@
 # Example Bicep deploy plus post-deploy Pester tests
 
 parameters:
+  - name: runReviewStage
+    displayName: "Run Review Stage"
+    type: boolean
+    default: true
   - name: skip_dev
     displayName: "Skip Environment: Development"
     type: boolean
@@ -11,10 +15,6 @@ parameters:
     default: true
   - name: skip_preprod
     displayName: "Skip Environment: Pre-Production"
-    type: boolean
-    default: true
-  - name: runReviewStage
-    displayName: "Run Review Stage"
     type: boolean
     default: true
   - name: doNotRunBicepActions
