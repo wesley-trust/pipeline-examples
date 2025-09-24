@@ -2,27 +2,27 @@
 
 parameters:
   - name: doNotRunBicepActions
-    displayName: "Skip Bicep Actions"
+    displayName: "Bicep Actions: Skip All"
     type: boolean
     default: false
   - name: doNotRunResourceGroup
-    displayName: "Skip Bicep Action: Resource Group"
+    displayName: "Bicep Actions: Skip Resource Group"
     type: boolean
     default: false
   - name: doNotRunBase
-    displayName: "Skip Bicep Action: Base"
+    displayName: "Bicep Actions: Skip Base"
     type: boolean
     default: false
   - name: doNotRunBicepTests
-    displayName: "Skip Bicep Tests"
+    displayName: "Bicep Tests: Skip All"
     type: boolean
     default: false
   - name: doNotRunRegression
-    displayName: "Skip Bicep Test: Regression"
+    displayName: "Bicep Tests: Skip Regression"
     type: boolean
     default: false
   - name: doNotRunSmoke
-    displayName: "Skip Bicep Test: Smoke"
+    displayName: "Bicep Tests: Skip Smoke"
     type: boolean
     default: false
   - name: skip_dev
@@ -42,7 +42,7 @@ parameters:
     type: boolean
     default: false
   - name: runReviewStage
-    displayName: "Run Review Stage"
+    displayName: "Enable Review Stage"
     type: boolean
     default: true
   - name: allowDeleteOnUnmanage
