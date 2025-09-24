@@ -41,20 +41,20 @@ parameters:
     displayName: "Skip Environment: Pre-Production"
     type: boolean
     default: true
-  - name: enableProduction
-    displayName: "Enable Production"
-    type: boolean
-    default: false
-  - name: drInvocation
-    displayName: "Invoke Disaster Recovery"
-    type: boolean
-    default: false
   - name: allowDeleteOnUnmanage
     displayName: "Allow Delete on Unmanage"
     type: boolean
     default: false
   - name: cleanupResourceGroupStack
     displayName: "Cleanup Resource Group Stack"
+    type: boolean
+    default: false
+  - name: enableProduction
+    displayName: "Enable Production"
+    type: boolean
+    default: false
+  - name: drInvocation
+    displayName: "Invoke Disaster Recovery"
     type: boolean
     default: false
 
