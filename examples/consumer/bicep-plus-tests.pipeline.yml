@@ -80,7 +80,7 @@ extends:
       - name: bicep_tests
         type: powershell
         enabled: ${{ not(parameters.doNotRunBicepTests) }}
-        displayName: Pester Bicep Tests
+        #displayName: Pester Bicep Tests
         dependsOn:
           - bicep_actions
         actions:
