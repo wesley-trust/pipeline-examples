@@ -80,38 +80,38 @@ extends:
     skip_preprod: ${{ parameters.skip_preprod }}
     actionGroups:
       - name: bicep_actions
-        type: bicep
-        enabled: ${{ not(parameters.doNotRunBicepActions) }}
         #displayName: Bicep Actions
+        enabled: ${{ not(parameters.doNotRunBicepActions) }}
+        type: bicep
         tokenReplaceEnabled: true
         # tokenTargetPatterns:
         #   - examples/assets/bicep/**/*.bicepparam
         actions:
           - name: resource_group
-            scope: subscription
             enabled: ${{ not(parameters.doNotRunResourceGroup) }}
-            #tokenReplaceEnabled: true
+            scope: subscription
             resourceGroupName: $(resourceGroup)
             location: $(region)
+            #tokenReplaceEnabled: true
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
             cleanupStack: ${{ parameters.cleanupResourceGroupStack }}
             templatePath: examples/assets/bicep/resourcegroup.bicep
             parametersFile: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
-            scope: resourceGroup
             enabled: ${{ not(parameters.doNotRunBase) }}
-            #tokenReplaceEnabled: true
+            scope: resourceGroup
             resourceGroupName: $(resourceGroup)
             location: $(region)
+            #tokenReplaceEnabled: true
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage }}
             templatePath: examples/assets/bicep/base.bicep
             parametersFile: examples/assets/bicep/base.bicepparam
       - name: bicep_tests
-        type: powershell
-        enabled: ${{ not(parameters.doNotRunBicepTests) }}
         #displayName: Pester Bicep Tests
+        enabled: ${{ not(parameters.doNotRunBicepTests) }}
+        type: powershell
+        scriptTask: azureCli
         runPowerShellReview: true
-        # if bicep actions is not skipped, then depend on it
         ${{ if not(parameters.doNotRunBicepActions) }}:
           dependsOn:
             - bicep_actions
