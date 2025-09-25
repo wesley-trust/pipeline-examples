@@ -23,8 +23,8 @@ try {
     Install-Module -Name Az -Scope CurrentUser -Force
   }
 
-  # Output all environmental variables for debugging purposes
-  Get-ChildItem Env: | Sort-Object Name | ForEach-Object { Write-Host $($_.Name) }
+  # Temporary for troubleshooting
+  Set-Location -Path self
 
   # Using ENVironment variables set by the AzureCLI@2 task
   Connect-AzAccount -ServicePrincipal `
