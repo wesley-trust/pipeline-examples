@@ -23,9 +23,6 @@ try {
     Install-Module -Name Az -Scope CurrentUser -Force
   }
 
-  # Temporary for troubleshooting
-  Set-Location -Path self
-
   # Using ENVironment variables set by the AzureCLI@2 task
   Connect-AzAccount -ServicePrincipal `
     -Tenant $env:tenantId `
