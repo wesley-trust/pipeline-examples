@@ -17,8 +17,6 @@ try {
   $dir = Split-Path -Path $ResultsFile -Parent
   if ($dir -and -not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
 
-  Set-Location self
-
   # Install the Az module if not already available
   if (-not (Get-Module -ListAvailable -Name Az)) {
     Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
