@@ -23,7 +23,10 @@ try {
   if (-not (Get-Module -ListAvailable -Name Az)) {
     Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
     Install-Module -Name Az -Scope CurrentUser -Force
-  } 
+  }
+
+  # Output all environmental variables for debugging purposes
+  Get-ChildItem Env: | Sort-Object Name | ForEach-Object { Write-Host $($_.Name) }
 
   # Using ENVironment variables set by the AzureCLI@2 task
   Connect-AzAccount -ServicePrincipal `
