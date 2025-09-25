@@ -30,10 +30,9 @@ try {
 
   # Using ENVironment variables set by the AzureCLI@2 task
   Connect-AzAccount -ServicePrincipal `
-    -Tenant $ENV:AZURE_TENANT_ID `
-    -ApplicationId $ENV:AZURE_CLIENT_ID `
-    -FederatedToken $ENV:AZURE_FEDERATED_TOKEN `
-    -Subscription $ENV:AZURE_SUBSCRIPTION_ID
+    -Tenant $env:tenantId `
+    -ApplicationId $env:servicePrincipalId `
+    -FederatedToken $env:idToken
 
   Invoke-Pester -Path $TestsPath -OutputFormat $ResultsFormat -OutputFile $ResultsFile -EnableExit
 }
