@@ -46,7 +46,7 @@ parameters:
     default: false
   - name: bicepTestsDelayMinutes
     displayName: "Delay Bicep tests start (minutes)"
-    type: int
+    type: number
     default: 0
     values:
       - 0
