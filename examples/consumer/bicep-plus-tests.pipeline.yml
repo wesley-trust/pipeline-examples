@@ -7,19 +7,19 @@ parameters:
     type: boolean
     default: false
   - name: drInvocation
-    displayName: "Invoke DR operation"
+    displayName: "Invoke Pipeline DR Operation"
     type: boolean
     default: false
 
   # Pipeline-level controls
   - name: doNotRunReviewStage
-    displayName: "Temporarily skip review stage"
+    displayName: "Temporarily Skip Review Stage"
     type: boolean
     default: false
 
   # Bicep action group toggles
   - name: doNotRunBicepActions
-    displayName: "Bicep Actions: Skip all"
+    displayName: "Bicep Actions: Skip All"
     type: boolean
     default: false
   - name: doNotRunResourceGroup
@@ -33,15 +33,15 @@ parameters:
 
   # Bicep test toggles & settings
   - name: doNotRunBicepTests
-    displayName: "Bicep Tests: Skip all"
+    displayName: "Bicep Tests: Skip All"
     type: boolean
     default: false
   - name: doNotRunRegression
-    displayName: "Bicep Tests: Skip regression"
+    displayName: "Bicep Tests: Skip Regression"
     type: boolean
     default: false
   - name: doNotRunSmoke
-    displayName: "Bicep Tests: Skip smoke"
+    displayName: "Bicep Tests: Skip Smoke"
     type: boolean
     default: false
   - name: bicepTestsDelayMinutes
@@ -58,25 +58,25 @@ parameters:
 
   # Operational flags
   - name: allowDeleteOnUnmanage
-    displayName: "Temporarily Allow delete on unmanage"
+    displayName: "Temporarily Allow Delete on Unmanage"
     type: boolean
     default: false
   - name: cleanupResourceGroupStack
-    displayName: "Cleanup resource group stack"
+    displayName: "Cleanup Resource Group Stack"
     type: boolean
     default: false
 
   # Environment skips
   - name: skip_dev
-    displayName: "Skip environment: Development"
+    displayName: "Skip Environment: Development"
     type: boolean
     default: false
   - name: skip_qa
-    displayName: "Skip environment: QA"
+    displayName: "Skip Environment: QA"
     type: boolean
     default: true
   - name: skip_preprod
-    displayName: "Skip environment: Pre-Production"
+    displayName: "Skip Environment: Pre-Production"
     type: boolean
     default: true
 
