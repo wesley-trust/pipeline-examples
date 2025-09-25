@@ -110,8 +110,10 @@ extends:
         type: powershell
         enabled: ${{ not(parameters.doNotRunBicepTests) }}
         #displayName: Pester Bicep Tests
-        dependsOn:
-          - bicep_actions
+        # if bicep actions is not skipped, then depend on it
+        ${{ if not(parameters.doNotRunBicepActions) }}:
+          dependsOn:
+            - bicep_actions
         actions:
           - name: regression
             enabled: ${{ not(parameters.doNotRunRegression) }}
