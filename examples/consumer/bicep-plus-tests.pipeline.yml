@@ -3,49 +3,49 @@
 parameters:
   # Global flags
   - name: enableProduction
-    displayName: "Enable production"
+    displayName: "Enable Production"
     type: boolean
     default: false
   - name: drInvocation
-    displayName: "Invoke disaster recovery"
+    displayName: "Invoke DR operation"
     type: boolean
     default: false
 
   # Pipeline-level controls
   - name: doNotRunReviewStage
-    displayName: "Skip review stage"
+    displayName: "Temporarily skip review stage"
     type: boolean
     default: false
 
   # Bicep action group toggles
   - name: doNotRunBicepActions
-    displayName: "Skip all Bicep actions"
+    displayName: "Bicep Actions: Skip all"
     type: boolean
     default: false
   - name: doNotRunResourceGroup
-    displayName: "Skip Resource Group action"
+    displayName: "Bicep Actions: Skip Resource Group"
     type: boolean
     default: false
   - name: doNotRunBase
-    displayName: "Skip Base action"
+    displayName: "Bicep Actions: Skip Base"
     type: boolean
     default: false
 
   # Bicep test toggles & settings
   - name: doNotRunBicepTests
-    displayName: "Skip all Bicep tests"
+    displayName: "Bicep Tests: Skip all"
     type: boolean
     default: false
   - name: doNotRunRegression
-    displayName: "Skip regression tests"
+    displayName: "Bicep Tests: Skip regression"
     type: boolean
     default: false
   - name: doNotRunSmoke
-    displayName: "Skip smoke tests"
+    displayName: "Bicep Tests: Skip smoke"
     type: boolean
     default: false
   - name: bicepTestsDelayMinutes
-    displayName: "Delay Bicep tests start (minutes)"
+    displayName: "Bicep Tests: Delay start (minutes)"
     type: number
     default: 0
     values:
@@ -58,7 +58,7 @@ parameters:
 
   # Operational flags
   - name: allowDeleteOnUnmanage
-    displayName: "Allow delete on unmanage (temporary)"
+    displayName: "Temporarily Allow delete on unmanage"
     type: boolean
     default: false
   - name: cleanupResourceGroupStack
