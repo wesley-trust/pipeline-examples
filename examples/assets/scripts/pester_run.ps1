@@ -23,7 +23,7 @@ try {
     Install-Module -Name Az -Scope CurrentUser -Force
   }
 
-  # Using ENVironment variables set by the AzureCLI@2 task
+  # Using Environment variables set by the AzureCLI@2 task
   Connect-AzAccount -ServicePrincipal `
     -Tenant $env:tenantId `
     -ApplicationId $env:servicePrincipalId `
