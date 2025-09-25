@@ -6,7 +6,7 @@ parameters:
     type: boolean
     default: true
   - name: allowDeleteOnUnmanage
-    displayName: "Allow Delete on Unmanage"
+    displayName: "Temporarily Allow Delete on Unmanage"
     type: boolean
     default: false
   - name: cleanupResourceGroupStack

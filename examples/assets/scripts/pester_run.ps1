@@ -19,6 +19,13 @@ try {
 
   Set-Location self
 
+  # Using environment variables set by the AzureCLI@2 task
+  Connect-AzAccount -ServicePrincipal `
+    -Tenant $env:tenantId `
+    -ApplicationId $env:servicePrincipalId `
+    -FederatedToken $env:idToken `
+    -Subscription $env:subscriptionId
+
   Invoke-Pester -Path $TestsPath -OutputFormat $ResultsFormat -OutputFile $ResultsFile -EnableExit
 }
 catch {
