@@ -48,7 +48,6 @@ extends:
             arguments: "-EnvName $(Environment)"
             delayMinutes: 1
             runInValidation: true
-            runInReview: true
           - name: two
             scriptPath: examples/assets/scripts/example_post.ps1
             arguments: "-EnvName $(Environment)"
