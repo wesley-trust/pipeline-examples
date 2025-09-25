@@ -19,6 +19,12 @@ try {
 
   Set-Location self
 
+  # Install the Az module if not already available
+  if (-not (Get-Module -ListAvailable -Name Az)) {
+    Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+    Install-Module -Name Az -Scope CurrentUser -Force
+  } 
+
   # Using environment variables set by the AzureCLI@2 task
   Connect-AzAccount -ServicePrincipal `
     -Tenant $env:tenantId `
