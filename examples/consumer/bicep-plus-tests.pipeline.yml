@@ -1,45 +1,52 @@
 # Example Bicep deploy plus post-deploy Pester tests
 
 parameters:
-  - name: runReviewStage
-    displayName: "Enable Review Stage"
-    type: boolean
-    default: true
-  - name: allowDeleteOnUnmanage
-    displayName: "Temporarily Allow Delete on Unmanage"
+  # Global flags
+  - name: enableProduction
+    displayName: "Enable production"
     type: boolean
     default: false
-  - name: cleanupResourceGroupStack
-    displayName: "Cleanup Resource Group Stack"
+  - name: drInvocation
+    displayName: "Invoke disaster recovery"
     type: boolean
     default: false
+
+  # Pipeline-level controls
+  - name: doNotRunReviewStage
+    displayName: "Skip review stage"
+    type: boolean
+    default: false
+
+  # Bicep action group toggles
   - name: doNotRunBicepActions
-    displayName: "Bicep Actions: Skip All"
+    displayName: "Skip all Bicep actions"
     type: boolean
     default: false
   - name: doNotRunResourceGroup
-    displayName: "Bicep Actions: Skip Resource Group"
+    displayName: "Skip Resource Group action"
     type: boolean
     default: false
   - name: doNotRunBase
-    displayName: "Bicep Actions: Skip Base"
+    displayName: "Skip Base action"
     type: boolean
     default: false
+
+  # Bicep test toggles & settings
   - name: doNotRunBicepTests
-    displayName: "Bicep Tests: Skip All"
+    displayName: "Skip all Bicep tests"
     type: boolean
     default: false
   - name: doNotRunRegression
-    displayName: "Bicep Tests: Skip Regression"
+    displayName: "Skip regression tests"
     type: boolean
     default: false
   - name: doNotRunSmoke
-    displayName: "Bicep Tests: Skip Smoke"
+    displayName: "Skip smoke tests"
     type: boolean
     default: false
   - name: bicepTestsDelayMinutes
-    displayName: "Bicep Tests: Delay Start (Minutes)"
-    type: string
+    displayName: "Delay Bicep tests start (minutes)"
+    type: int
     default: 0
     values:
       - 0
@@ -48,32 +55,36 @@ parameters:
       - 30
       - 45
       - 60
+
+  # Operational flags
+  - name: allowDeleteOnUnmanage
+    displayName: "Allow delete on unmanage (temporary)"
+    type: boolean
+    default: false
+  - name: cleanupResourceGroupStack
+    displayName: "Cleanup resource group stack"
+    type: boolean
+    default: false
+
+  # Environment skips
   - name: skip_dev
-    displayName: "Skip Environment: Development"
+    displayName: "Skip environment: Development"
     type: boolean
     default: false
   - name: skip_qa
-    displayName: "Skip Environment: QA"
+    displayName: "Skip environment: QA"
     type: boolean
     default: true
   - name: skip_preprod
-    displayName: "Skip Environment: Pre-Production"
+    displayName: "Skip environment: Pre-Production"
     type: boolean
     default: true
-  - name: enableProduction
-    displayName: "Enable Production"
-    type: boolean
-    default: false
-  - name: drInvocation
-    displayName: "Invoke Disaster Recovery"
-    type: boolean
-    default: false
 
 extends:
   template: bicep-plus-tests.settings.yml
   parameters:
     enableProduction: ${{ parameters.enableProduction }}
-    runReviewStage: ${{ parameters.runReviewStage }}
+    runReviewStage: ${{ not(parameters.doNotRunReviewStage) }}
     drInvocation: ${{ parameters.drInvocation }}
     skip_dev: ${{ parameters.skip_dev }}
     skip_qa: ${{ parameters.skip_qa }}
