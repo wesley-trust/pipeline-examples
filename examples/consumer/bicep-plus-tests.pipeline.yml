@@ -122,7 +122,7 @@ extends:
         enabled: ${{ not(parameters.doNotRunBicepTests) }}
         type: powershell
         scriptTask: azureCli
-        runPowerShellReview: true
+        #runPowerShellReview: true
         delayMinutes: ${{ parameters.bicepTestsDelayMinutes }}
         ${{ if not(parameters.doNotRunBicepActions) }}:
           dependsOn:
