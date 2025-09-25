@@ -37,7 +37,7 @@ parameters:
     displayName: "Bicep Tests: Skip Smoke"
     type: boolean
     default: false
-  - name: bicepTestsDelayStartMinutes
+  - name: bicepTestsDelayMinutes
     displayName: "Bicep Tests: Delay Start (Minutes)"
     type: string
     default: 0
