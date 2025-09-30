@@ -67,7 +67,7 @@ extends:
           poolRegionDemand: false
         - name: prd
           class: production
-          dependsOn: preprod
+          dependsOn: ppr
           dependsOnRegion: weu
           dependsOnDRRegion: neu
           primaryRegion: weu
