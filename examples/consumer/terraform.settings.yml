@@ -61,7 +61,7 @@ extends:
           poolRegionDemand: false
         - name: ppr
           class: acceptance
-          dependsOn: test
+          dependsOn: qa
           dependsOnRegion: weu
           dependsOnDRRegion: neu
           primaryRegion: weu
