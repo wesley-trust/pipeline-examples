@@ -107,7 +107,7 @@ extends:
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage}}
             cleanupStack: ${{ parameters.cleanupResourceGroupStack }}
             templatePath: examples/assets/bicep/resourcegroup.bicep
-            parametersFile: examples/assets/bicep/resourcegroup.bicepparam
+            parametersPath: examples/assets/bicep/resourcegroup.bicepparam
           - name: base
             enabled: ${{ not(parameters.doNotRunBase) }}
             scope: resourceGroup
@@ -116,7 +116,7 @@ extends:
             #tokenReplaceEnabled: true
             allowDeleteOnUnmanage: ${{ parameters.allowDeleteOnUnmanage }}
             templatePath: examples/assets/bicep/base.bicep
-            parametersFile: examples/assets/bicep/base.bicepparam
+            parametersPath: examples/assets/bicep/base.bicepparam
       - name: bicep_tests
         #displayName: Pester Bicep Tests
         enabled: ${{ not(parameters.doNotRunBicepTests) }}

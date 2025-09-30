@@ -42,7 +42,7 @@ extends:
             resourceGroupName: rg-app-$(Environment)
             location: westeurope
             templatePath: examples/assets/bicep/one.bicep
-            parametersFile: examples/assets/bicep/one.bicepparam
+            parametersPath: examples/assets/bicep/one.bicepparam
             mode: incremental
       - name: bicep_task_2
         type: bicep
@@ -56,12 +56,12 @@ extends:
             resourceGroupName: rg-app-$(Environment)
             location: westeurope
             templatePath: examples/assets/bicep/two.bicep
-            parametersFile: examples/assets/bicep/two.bicepparam
+            parametersPath: examples/assets/bicep/two.bicepparam
             mode: incremental
           - name: three
             scope: resourceGroup
             resourceGroupName: rg-app-$(Environment)
             location: westeurope
             templatePath: examples/assets/bicep/three.bicep
-            parametersFile: examples/assets/bicep/three.bicepparam
+            parametersPath: examples/assets/bicep/three.bicepparam
             mode: incremental
