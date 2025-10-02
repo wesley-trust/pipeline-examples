@@ -29,20 +29,20 @@ resources:
       type: github
       endpoint: wesley-trust
       name: wesley-trust/pipeline-dispatcher
-      ref: 'refs/heads/main'
+      ref: "refs/heads/main"
 
 extends:
-  template: /templates/pipeline-dispatcher.yml@PipelineDispatcher
+  template: /templates/pipeline-common-dispatcher.yml@PipelineDispatcher
   parameters:
     configuration:
       environments:
         - name: dev
           class: development
           primaryRegion: weu
-          secondaryRegions: [ neu ]
+          secondaryRegions: [neu]
           drRegion: neu
-          allowedBranches: [ '*' ]
-          pool: { vmImage: 'ubuntu-latest' }
+          allowedBranches: ["*"]
+          pool: { vmImage: "ubuntu-latest" }
           skipEnvironment: ${{ parameters.skip_dev }}
           poolRegionDemand: false
         - name: qa
@@ -51,8 +51,8 @@ extends:
           dependsOnRegion: weu
           dependsOnDRRegion: neu
           primaryRegion: weu
-          allowedBranches: [ 'main', 'release/*' ]
-          pool: { vmImage: 'ubuntu-latest' }
+          allowedBranches: ["main", "release/*"]
+          pool: { vmImage: "ubuntu-latest" }
           skipEnvironment: ${{ parameters.skip_qa }}
           poolRegionDemand: false
         - name: ppr
@@ -61,8 +61,8 @@ extends:
           dependsOnRegion: weu
           dependsOnDRRegion: neu
           primaryRegion: weu
-          allowedBranches: [ 'main', 'release/*' ]
-          pool: { vmImage: 'ubuntu-latest' }
+          allowedBranches: ["main", "release/*"]
+          pool: { vmImage: "ubuntu-latest" }
           skipEnvironment: ${{ parameters.skip_preprod }}
           poolRegionDemand: false
         - name: prd
@@ -71,10 +71,10 @@ extends:
           dependsOnRegion: weu
           dependsOnDRRegion: neu
           primaryRegion: weu
-          secondaryRegions: [ neu ]
+          secondaryRegions: [neu]
           drRegion: neu
-          allowedBranches: [ 'main', 'release/*' ]
-          pool: { name: 'Prod-SelfHosted' }
+          allowedBranches: ["main", "release/*"]
+          pool: { name: "Prod-SelfHosted" }
           poolRegionDemand: true
       actionGroups: ${{ parameters.actionGroups }}
       enableProduction: ${{ parameters.enableProduction }}
@@ -86,12 +86,12 @@ extends:
         includeEnv: true
         includeEnvRegion: true
         includeRegionOnly: true
-      defaultPool: { vmImage: 'ubuntu-latest' }
-      variableGroups: [ 'Common-Variables' ]
+      defaultPool: { vmImage: "ubuntu-latest" }
+      variableGroups: ["Common-Variables"]
       additionalRepositories:
         - alias: Modules
           name: org/project.modules
           ref: refs/heads/main
       keyVault:
         name: kv-example
-        secretsFilter: 'app-*'
+        secretsFilter: "app-*"

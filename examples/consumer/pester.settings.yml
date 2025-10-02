@@ -14,22 +14,22 @@ resources:
       type: github
       endpoint: wesley-trust
       name: wesley-trust/pipeline-dispatcher
-      ref: 'refs/heads/main'
+      ref: "refs/heads/main"
 
 extends:
-  template: /templates/pipeline-dispatcher.yml@PipelineDispatcher
+  template: /templates/pipeline-common-dispatcher.yml@PipelineDispatcher
   parameters:
     configuration:
       environments:
         - name: dev
           class: development
           primaryRegion: weu
-          allowedBranches: [ '*' ]
-          pool: { vmImage: 'ubuntu-latest' }
+          allowedBranches: ["*"]
+          pool: { vmImage: "ubuntu-latest" }
       actionGroups: ${{ parameters.actionGroups }}
       runReviewStage: false
       drInvocation: ${{ parameters.drInvocation }}
-      defaultPool: { vmImage: 'ubuntu-latest' }
+      defaultPool: { vmImage: "ubuntu-latest" }
       variableRoot: examples/consumer/vars
       variables:
         includeCommon: true
@@ -42,4 +42,4 @@ extends:
           ref: refs/heads/main
       keyVault:
         name: kv-example
-        secretsFilter: 'app-*'
+        secretsFilter: "app-*"
