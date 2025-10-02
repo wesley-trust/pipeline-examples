@@ -32,7 +32,7 @@ resources:
       ref: "refs/heads/main"
 
 extends:
-  template: /templates/pipeline-dispatcher.yml@PipelineDispatcher
+  template: /templates/pipeline-common-dispatcher.yml@PipelineDispatcher
   parameters:
     configuration:
       defaultPool:
